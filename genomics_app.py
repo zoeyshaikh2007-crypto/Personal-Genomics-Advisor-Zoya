@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
@@ -85,7 +85,7 @@ def register_user(username, password, email):
     return True, "Registration successful! Please login."
 
 # =============================================
-# 🎨 PROFESSIONAL STYLING
+# 🎨 PROFESSIONAL STYLING - UPDATED COLOR SCHEME
 # =============================================
 
 st.set_page_config(
@@ -95,21 +95,22 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Advanced CSS Styling
+# Modern Cool Color Scheme - Teal, Purple, and Deep Blue
 st.markdown("""
 <style>
     .main-header {
         font-size: 3.8rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
         margin-bottom: 1rem;
         font-weight: 800;
+        text-shadow: 0 4px 8px rgba(0, 210, 255, 0.2);
     }
     .sub-header {
         font-size: 1.3rem;
-        color: #5d6d7e;
+        color: #6C757D;
         text-align: center;
         margin-bottom: 3rem;
         font-weight: 300;
@@ -117,11 +118,12 @@ st.markdown("""
     .auth-container {
         max-width: 500px;
         margin: 2rem auto;
-        padding: 2rem;
-        background: white;
+        padding: 2.5rem;
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        border: 1px solid #e8e8e8;
+        box-shadow: 0 15px 35px rgba(58, 123, 213, 0.1);
+        border: 1px solid rgba(0, 210, 255, 0.2);
+        backdrop-filter: blur(10px);
     }
     .auth-header {
         text-align: center;
@@ -129,82 +131,103 @@ st.markdown("""
     }
     .auth-title {
         font-size: 2.2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 700;
         margin-bottom: 0.5rem;
     }
     .auth-subtitle {
-        color: #7f8c8d;
+        color: #6C757D;
         font-size: 1.1rem;
     }
     .user-welcome {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        padding: 1rem;
-        border-radius: 12px;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    .card {
-        background: white;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        margin-bottom: 1.5rem;
-        border: 1px solid #e8e8e8;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-    .priority-high {
-        border-left: 6px solid #e74c3c;
-        background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);
-    }
-    .priority-medium {
-        border-left: 6px solid #f39c12;
-        background: linear-gradient(135deg, #fffbf0 0%, #fff5e6 100%);
-    }
-    .priority-low {
-        border-left: 6px solid #27ae60;
-        background: linear-gradient(135deg, #f0fff4 0%, #e8f5e8 100%);
-    }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 1.5rem;
-        border-radius: 12px;
         text-align: center;
+        margin-bottom: 2rem;
         box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
     }
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1.8rem;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.8rem;
+        border: 1px solid rgba(0, 210, 255, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+    }
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(58, 123, 213, 0.15);
+        border-color: rgba(0, 210, 255, 0.3);
+    }
+    .priority-high {
+        border-left: 6px solid #FF6B6B;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%);
+    }
+    .priority-medium {
+        border-left: 6px solid #FFD93D;
+        background: linear-gradient(135deg, rgba(255, 217, 61, 0.05) 0%, rgba(255, 217, 61, 0.02) 100%);
+    }
+    .priority-low {
+        border-left: 6px solid #6BCF7F;
+        background: linear-gradient(135deg, rgba(107, 207, 127, 0.05) 0%, rgba(107, 207, 127, 0.02) 100%);
+    }
+    .metric-card {
+        background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%);
+        color: white;
+        padding: 1.8rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 12px 30px rgba(0, 210, 255, 0.25);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .metric-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 35px rgba(0, 210, 255, 0.35);
+    }
     .stButton>button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%);
         color: white;
         border: none;
-        padding: 0.8rem 2rem;
-        border-radius: 8px;
+        padding: 1rem 2.2rem;
+        border-radius: 12px;
         font-size: 1.1rem;
         font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 6px 20px rgba(0, 210, 255, 0.3);
     }
     .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 210, 255, 0.4);
     }
     .auth-button {
         width: 100%;
-        margin: 10px 0;
+        margin: 12px 0;
     }
     .feature-box {
-        background: white;
-        padding: 1rem;
-        border-radius: 10px;
-        margin: 0.5rem 0;
-        border-left: 4px solid #667eea;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1.2rem;
+        border-radius: 12px;
+        margin: 0.6rem 0;
+        border-left: 4px solid #00D2FF;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+    .feature-box:hover {
+        transform: translateX(5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar .sidebar-content {
+        background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    .stProgress > div > div > div > div {
+        background: linear-gradient(90deg, #00D2FF 0%, #3A7BD5 100%);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -829,7 +852,7 @@ def show_main_application():
                     probabilities['reward_deficiency'] if predictions['reward_deficiency'] else 1 - probabilities['reward_deficiency']
                 ]
                 
-                colors = ['#e74c3c' if x > 0.7 else '#f39c12' if x > 0.5 else '#27ae60' for x in values]
+                colors = ['#FF6B6B' if x > 0.7 else '#FFD93D' if x > 0.5 else '#6BCF7F' for x in values]
                 
                 fig = go.Figure(data=[
                     go.Bar(
@@ -867,7 +890,7 @@ def show_main_application():
                     theta=categories,
                     fill='toself',
                     name='Your Genetic Profile',
-                    line=dict(color='#667eea', width=2)
+                    line=dict(color='#00D2FF', width=2)
                 ))
                 fig.update_layout(
                     polar=dict(
